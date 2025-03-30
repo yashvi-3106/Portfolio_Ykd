@@ -49,3 +49,37 @@ body {
   animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+@keyframes float2 {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+@keyframes float3 {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+@keyframes bounce-slower {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+}
+@keyframes bounce-fast {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-float { animation: float 3s infinite ease-in-out; }
+.animate-float2 { animation: float2 3.5s infinite ease-in-out; }
+.animate-float3 { animation: float3 4s infinite ease-in-out; }
+.animate-bounce-slow { animation: bounce-slow 5s infinite ease-in-out; }
+.animate-bounce-slower { animation: bounce-slower 6s infinite ease-in-out; }
+.animate-bounce-fast { animation: bounce-fast 4s infinite ease-in-out; }
