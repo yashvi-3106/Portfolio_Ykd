@@ -25,9 +25,10 @@ function AnimatedSphere({ position, color, speed, scale = 1 }) {
   });
 
   return (
-    <Sphere args={[scale, 64, 64]} position={position} ref={mesh}>
-      <meshStandardMaterial color={color} />
-    </Sphere>
+    <Sphere args={[1.2, 64, 64]} position={[0, 0, 0]}>
+  <meshStandardMaterial color="#14b8a6" roughness={0.5} metalness={0.2} />
+</Sphere>
+
   );
 }
 
