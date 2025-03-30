@@ -1,9 +1,10 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import { Text, Float, Sphere, OrbitControls } from "@react-three/drei";
+import { Text, Float, OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 
 function FloatingText({ text, position, color, speed = 1 }) {
   return (
@@ -25,16 +26,28 @@ function AnimatedSphere({ position, color, speed, scale = 1 }) {
   });
 
   return (
-    <Sphere args={[1.2, 64, 64]} position={[0, 0, 0]}>
-  <meshStandardMaterial color="#14b8a6" roughness={0.5} metalness={0.2} />
-</Sphere>
-
+    <mesh ref={mesh} position={position} scale={scale}>
+      <sphereGeometry args={[1.2, 32, 32]} /> {/* Reduced complexity */}
+      <meshStandardMaterial color={color} roughness={0.5} metalness={0.2} />
+    </mesh>
   );
 }
 
 export default function AboutScene() {
   return (
-    <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+    <Canvas
+      gl={{ antialias: true }}
+      onCreated={({ gl }) => {
+        gl.domElement.addEventListener('webglcontextlost', (e) => {
+          console.log('WebGL context lost');
+          e.preventDefault();
+        });
+        gl.domElement.addEventListener('webglcontextrestored', () => {
+          console.log('WebGL context restored');
+        });
+      }}
+      camera={{ position: [0, 0, 5], fov: 75 }}
+    >
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 5]} intensity={0.5} />
       <pointLight position={[-10, -10, -5]} intensity={0.5} />
