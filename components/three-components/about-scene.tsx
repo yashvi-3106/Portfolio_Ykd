@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { Canvas } from "@react-three/fiber"
-import { Text, Float, MeshDistortMaterial, Sphere, OrbitControls } from "@react-three/drei"
-import { useRef } from "react"
-import { useFrame } from "@react-three/fiber"
+import { Canvas } from "@react-three/fiber";
+import { Text, Float, Sphere, OrbitControls } from "@react-three/drei";
+import { useRef } from "react";
+import { useFrame } from "@react-three/fiber";
 
 function FloatingText({ text, position, color, speed = 1 }) {
   return (
@@ -12,30 +12,23 @@ function FloatingText({ text, position, color, speed = 1 }) {
         {text}
       </Text>
     </Float>
-  )
+  );
 }
 
-function AnimatedSphere({ position, color, speed, distort, scale = 1 }) {
-  const mesh = useRef()
+function AnimatedSphere({ position, color, speed, scale = 1 }) {
+  const mesh = useRef();
 
   useFrame(() => {
     if (mesh.current) {
-      mesh.current.rotation.x = mesh.current.rotation.y += 0.01 * speed
+      mesh.current.rotation.x = mesh.current.rotation.y += 0.01 * speed;
     }
-  })
+  });
 
   return (
     <Sphere args={[scale, 64, 64]} position={position} ref={mesh}>
-      <MeshDistortMaterial
-        color={color}
-        attach="material"
-        distort={distort}
-        speed={speed}
-        roughness={0.5}
-        metalness={0.2}
-      />
+      <meshStandardMaterial color={color} />
     </Sphere>
-  )
+  );
 }
 
 export default function AboutScene() {
@@ -45,9 +38,9 @@ export default function AboutScene() {
       <directionalLight position={[10, 10, 5]} intensity={0.5} />
       <pointLight position={[-10, -10, -5]} intensity={0.5} />
 
-      <AnimatedSphere position={[-2, 0, 0]} color="#14b8a6" speed={0.5} distort={0.4} scale={1.2} />
-      <AnimatedSphere position={[2, -1, -2]} color="#f59e0b" speed={0.8} distort={0.6} scale={0.8} />
-      <AnimatedSphere position={[0, 1.5, -1]} color="#f43f5e" speed={0.3} distort={0.3} scale={0.6} />
+      <AnimatedSphere position={[-2, 0, 0]} color="#14b8a6" speed={0.5} scale={1.2} />
+      <AnimatedSphere position={[2, -1, -2]} color="#f59e0b" speed={0.8} scale={0.8} />
+      <AnimatedSphere position={[0, 1.5, -1]} color="#f43f5e" speed={0.3} scale={0.6} />
 
       <FloatingText text="Creative" position={[-2.5, 1.5, 0]} color="#14b8a6" speed={1.5} />
       <FloatingText text="Innovative" position={[2.5, 0.5, -1]} color="#f59e0b" speed={2} />
@@ -55,6 +48,5 @@ export default function AboutScene() {
 
       <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
     </Canvas>
-  )
+  );
 }
-
