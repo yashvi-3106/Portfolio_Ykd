@@ -168,7 +168,7 @@ export default function Home() {
                       }}
                     >
                       <img
-                        src="https://media-hosting.imagekit.io/63aafe26d12a48c9/Yashvi_ghibli.png?Expires=1837928486&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=KHKwlqVOGEwtm4U6dnBeb74868cO7ZxcdsfnXKg~R4517QB-1qsF8JoVjOfhnGe9B4Ffm7fKfO~QiIyrQ8aQNKSX9X4DJzeV1jB1cAAd~1DW8-aMnAnt9NW-loxe01UNVsKs2ouCzVJrjG7qFhu5voVstVOmidkIhXqgHoJJsnJH2AvbuEmp8M7NjTVHYaU26bA2Xh9zPNJESc9IE-YiiAysW3T7OgR8w6mLFe3XL5Eifw4g~JUlJcdqqjV-TYvwN2Fm8pUKdkv4W5zHGN-8V5ACMdDhTdZNB53rmT5IOPdk2fwppiVyJqeP2NtEzxk-M2N-Vd4CY4wziW-sF-ATnw__"
+                        src="https://ik.imagekit.io/viik8o1ol/db03b8da-1cea-4a9e-a017-627bd9ca0fb2.png?updatedAt=1754382100734"
                         alt="John Doe"
                         className="w-full h-full object-cover"
                       />
